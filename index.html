@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Akshada Pande AI & Machine Learning Specialist</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #0d1a2f; /* Darker blue/slate */
+            --card-bg: rgba(22, 38, 59, 0.8);
+            --primary: #4ade80; /* Light Green/Success - New AI/Data theme color */
+            --secondary: #06b6d4; /* Cyan - For accents */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-border: 1px solid rgba(255, 255, 255, 0.15);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+
+        /* --- BACKGROUND GLOW ANIMATION (Updated Colors) --- */
+        .background-glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            filter: blur(150px);
+            border-radius: 50%;
+            opacity: 0.15;
+            z-index: -1;
+            animation: moveGlow 20s infinite alternate;
+        }
+        .glow-2 {
+            background: var(--secondary);
+            top: 20%;
+            right: 0;
+            animation-duration: 25s;
+        }
+
+
+        @keyframes moveGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(150px, 150px); }
+        }
+
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            background: rgba(13, 26, 47, 0.9); /* Use background color in nav */
+            z-index: 1000;
+            border-bottom: var(--glass-border);
+            box-shadow: var(--shadow);
+        }
+
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: var(--primary); /* Highlight with new primary color */
+        }
+
+
+        .btn-contact {
+            padding: 0.7rem 1.6rem;
+            border-radius: 50px;
+            background: var(--gradient);
+            color: var(--bg-color); /* Dark text on gradient button */
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+
+        .btn-contact:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+
+        /* --- HERO SECTION --- */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10%;
+            text-align: center;
+        }
+
+
+        .hero-content h1 {
+            font-size: 4.5rem; /* Slightly larger */
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+
+        .hero-content span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .hero-content p {
+            font-size: 1.3rem; /* Slightly larger text */
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--primary);
+        }
+
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-10px) translateX(-50%);}
+            60% {transform: translateY(-5px) translateX(-50%);}
+        }
+
+
+        /* --- GENERAL SECTION STYLES --- */
+        section {
+            padding: 6rem 10%; /* More padding for separation */
+        }
+
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+
+        .section-title span {
+            border-bottom: 3px solid var(--primary); /* Use new primary color for underline */
+        }
+
+
+        /* --- ABOUT & SKILLS --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Text section slightly wider */
+            gap: 5rem;
+            align-items: center;
+        }
+
+
+        .about-text h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+
+        .skill-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(74, 222, 128, 0.1); /* Light green background */
+            color: var(--primary);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--bg-color);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+
+        .about-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid var(--secondary); /* Stronger frame */
+            box-shadow: var(--shadow);
+            opacity: 0.85;
+        }
+
+
+        /* --- PROJECTS SECTION (Cards) --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider cards */
+            gap: 2.5rem;
+        }
+
+
+        .card {
+            background: var(--card-bg);
+            border: var(--glass-border);
+            border-radius: 18px;
+            padding: 2rem;
+            transition: 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border-color: var(--primary);
+        }
+
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            background-color: #1e3a5a;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--secondary); /* Icon color */
+        }
+
+
+        .card h3 {
+            margin-bottom: 0.7rem;
+            font-size: 1.4rem;
+            color: var(--text-main);
+        }
+
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+
+        .card-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+
+        .card-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+
+        .card-links a:hover {
+            color: var(--secondary);
+        }
+
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 5rem 0;
+            background: rgba(13, 26, 47, 0.5);
+            border-top: var(--glass-border);
+        }
+
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 1.8rem;
+            transition: 0.3s;
+        }
+
+
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: scale(1.3);
+        }
+
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .about-img {
+                height: 300px;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero-content h1 { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+            nav { padding: 1.5rem 5%; }
+            .nav-links { display: none; }
+        }
+        /* ===== PRO CONTACT SECTION (FINAL) ===== */
+
+.contact-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.contact-box {
+    background: linear-gradient(145deg, rgba(22,38,59,0.9), rgba(15,30,50,0.9));
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    width: 270px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Animated gradient border */
+.contact-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4ade80, #06b6d4);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.contact-box:hover::before {
+    opacity: 1;
+}
+
+.contact-box:hover {
+    transform: translateY(-14px) scale(1.04);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+}
+
+/* Floating icons */
+.contact-box i {
+    margin-bottom: 1rem;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Text styling */
+.contact-box a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #4ade80, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.4px;
+}
+
+/* WhatsApp attention pulse */
+.whatsapp-box {
+    animation: pulseWhatsApp 2.4s infinite;
+}
+
+@keyframes pulseWhatsApp {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+    70% { box-shadow: 0 0 0 22px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* Footer copyright */
+.footer-copy {
+    margin-top: 3.5rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    opacity: 0.9;
+}
+
+    </style>
+</head>
+<body>
+
+
+    <div class="background-glow"></div>
+    <div class="background-glow glow-2"></div>
+
+
+    <nav>
+        <div class="logo">AKSHADA PANDE.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Profile & Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+        <a href="mailto:parmkumar6505@gmail.com" class="btn-contact">Get in Touch</a>
+    </nav>
+
+
+    <header id="home">
+        <div class="hero-content">
+            <h1>Enthusiast in <br><span>Artificial Intelligence</span> & Machine Learning</h1>
+            <p>I am an M.Sc. IT Post Graduate with a completed 6-month AI/ML internship at NIELIT in collaboration with IIT Ropar. Dedicated to building accurate and insightful data models.</p>
+            <a href="#projects" class="btn-contact">View AI Projects</a>
+        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fa-solid fa-chevron-down fa-2x"></i>
+        </a>
+    </header>
+
+
+    <section id="about">
+        <h2 class="section-title"><span>Professional Profile</span></h2>
+        <div class="about-grid">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Artificial Intelligence Concept" class="about-img">
+           
+            <div class="about-text">
+                <h3>Objective </h3>
+                <p>I seek an organization that nurtures professional growth with a right mix of challenges, exposure, learning opportunities, and career development in the AI and Machine Learning domain.</p>
+
+
+                <h3>Academic Background </h3>
+                <p>
+                    M.Sc. IT (Lateral Entry), Government College, Ropar (Completion 2025, (80% )) 
+                    PGDCA, Government College, Ropar (2024, (79%)) 
+                    B.A, Government College, Ropar (2023, (76.93%)) 
+                </p>
+
+
+                <h3>Training & Certifications </h3>
+                <p>
+                    Artificial Intelligence and Machine Learning (6 months Internship at NIELIT Ropar with IIT Ropar collaboration) 
+                    Programming Essentials in Python (Cisco Network Academy) 
+
+
+                <h3>Key Technical Skills </h3>
+                <div class="skills-container">
+                    <span class="skill-tag">Python </span>
+                    <span class="skill-tag">NumPy </span>
+                    <span class="skill-tag">Pandas </span>
+                    <span class="skill-tag">Scikit-Learn </span>
+                
+                    <span class="skill-tag">OpenCV (Computer Vision)</span>
+                    
+                    <span class="skill-tag">Data Analysis </span>
+                    <span class="skill-tag">BeautifulSoup </span>
+                    <span class="skill-tag">Flask </span>
+                    <span class="skill-tag">MS Office </span>
+                    <span class="skill-tag">HTML5, CSS3 </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projects">
+        <h2 class="section-title"><span>Featured AI & Data Projects</span></h2>
+        <div class="projects-grid">
+           
+            <div class="card">
+                <div class="card-img">
+                    <i class="fa-solid fa-crosshairs"></i>
+                </div>
+                <h3>Object Detection Model </h3>
+                <p>Developed a computer vision model to detect and localize objects in images. Trained on custom datasets and implemented using CNN-based deep learning architectures for accurate identification.</p>
+                <div class="card-links">
+                    <a href="https://github.com/AkshadaPande06" target="_blank"><i class="fa-brands fa-github"></i> GitHub (Stack: Python, TensorFlow/Keras, OpenCV)</a>
+                </div>
+            </div>
+<div class="card">
+    <div class="card-img">
+        <i class="fa-solid fa-user-check"></i>
+    </div>
+
+    <h3>Face Detection System</h3>
+
+    <p>
+        Developed a real-time face detection system capable of identifying human faces
+        from images and live webcam feeds. Implemented Haar Cascade and deep learning–
+        based techniques to achieve accurate and efficient face detection under
+        varying lighting conditions.
+    </p>
+
+    <div class="card-links">
+        <a href="https://github.com/AkshadaPande06" target="_blank">
+            <i class="fa-brands fa-github"></i>
+            GitHub (Stack: Python, OpenCV, Haar Cascade)
+        </a>
+    </div>
+</div>
+
+
+            <div class="card">
+                <div class="card-img">
+                    <i class="fa-solid fa-face-smile"></i>
+                </div>
+                <h3>Sentiment Analysis </h3>
+                <p>Performed sentiment analysis on product reviews collected from Flipkart and Amazon. Built ML models to classify reviews as Positive, Negative, or Neutral to understand customer feedback patterns.</p>
+                <div class="card-links">
+                    <a href="https://github.com/AkshadaPande06" target="_blank"><i class="fa-brands fa-github"></i> GitHub (Stack: Python, Scikit-learn, NLTK, Text Blob)</a>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-img">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <h3>Mental Health Prediction </h3>
+                <p>Developed an ML classification project to predict mental health conditions using survey-based inputs. Performed comprehensive EDA, preprocessing, and built classification models for accurate predictions.</p>
+                <div class="card-links">
+                    <a href="https://github.com/AkshadaPande06" target="_blank"><i class="fa-brands fa-github"></i> GitHub (Stack: Python, Pandas, NumPy, Scikit-learn)</a>
+                </div>
+            </div>
+           
+             <div class="card">
+                <div class="card-img">
+                    <i class="fa-solid fa-newspaper"></i>
+                </div>
+                <h3>Web Scraping for News </h3>
+                <p>Created an automated web scraping system to fetch real-time news articles from multiple Indian and global portals. Implemented text-cleaning pipelines and categorized news into domains like politics, sports, and business.</p>
+                <div class="card-links">
+                    <a href="https://github.com/AkshadaPande06" target="_blank"><i class="fa-brands fa-github"></i> GitHub (Stack: Python, BeautifulSoup, Requests, Pandas)</a>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+        
+    </section>
+<footer id="contact">
+        <h2 class="section-title"><span>Connect With Akshada Pande</span></h2>
+        <p style="color: var(--text-muted); margin-bottom: 2.5rem;">I am actively seeking roles in Artificial Intelligence, Machine Learning, and Data Science. Let's build something intelligent.</p>
+       
+        <div class="social-icons">
+            <a href="https://github.com/AkshadaPande06" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="www.linkedin.com/in/akshada-pande-b063ab379" target="_blank" title="LinkedIn-Parmod Kumar"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:akshadapande544@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+916280506454" title="Call"><i class="fa-solid fa-phone"></i></a>
+        </div>
+
+
+        <p style="font-size: 0.9rem; color: var(--text-muted);">© 2024 Akshada Pande . Based in Rupnagar, Punjab.</p>
+    </footer>
+
+
+    <div class="contact-boxes">
+
+    <div class="contact-box">
+        <i class="fa-solid fa-envelope fa-2x" style="color:#4ade80"></i>
+        <p>
+            <a href="mailto:akshadapande544@gmail.com">
+                Send Professional Email
+            </a>
+        </p>
+    </div>
+
+    <div class="contact-box whatsapp-box">
+        <i class="fa-brands fa-whatsapp fa-2x" style="color:#25D366"></i>
+        <p>
+            <a href="https://wa.me/917717478862" target="_blank">
+                WhatsApp Direct
+            </a>
+        </p>
+    </div>
+
+    <div class="contact-box whatsapp-box">
+        <i class="fa-brands fa-whatsapp fa-2x" style="color:#25D366"></i>
+        <p>
+            <a href="https://wa.me/917973203785" target="_blank">
+                WhatsApp Alternate
+            </a>
+        </p>
+    </div>
+
+</div>
+
+<p class="footer-copy">
+    © 2025 Akshada Pande • AI & Machine Learning • Rupnagar, Punjab
+</p>
+
+</body>
+</html>
